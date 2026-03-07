@@ -40,8 +40,6 @@ Mapeamento de caminhos (endpoints) da API.
 
 ## 🚀 Próximos Passos
 
-Para dar continuidade ao desenvolvimento, siga esta ordem sugerida:
-
 1.  **Configuração do Banco**: Finalizar o arquivo `connection.ts` na pasta `database` para conectar com seu SQLite3 ou SQL Server.
 2.  **Criação das Migrations**: Definir as tabelas de `voos` e `usuarios` no banco de dados.
 3.  **Implementação do Auth**: Configurar a criptografia de senhas usando o **Bcrypt** no `AutenticarUsuario.ts`.
