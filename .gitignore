@@ -1,7 +1,10 @@
 
 node_modules/
 jspm_packages/
-
+node_modules/
+dist/
+database.sqlite
+.env
 
 logs
 *.log

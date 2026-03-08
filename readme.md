@@ -1,46 +1,33 @@
 # ✈️ Airport Management System - Backend
 
-Este projeto é um sistema de gerenciamento de aeroporto desenvolvido com **Node.js**, **TypeScript** e **SQL**. A arquitetura foi pensada para ser escalável e organizada, utilizando padrões de mercado como MVC e Service Pattern.
+Sistema de gerenciamento de aeroporto desenvolvido para fins de estudo em Engenharia de Software. O projeto foca em boas práticas de arquitetura, segurança e manipulação de banco de dados relacional.
 
-## 🏗️ Estrutura de Pastas
+## 🛠️ Tecnologias Utilizadas
+- **Node.js** com **TypeScript**
+- **Express** (Framework Web)
+- **SQLite3** (Banco de Dados)
+- **Bcrypt** (Criptografia de senhas)
+- **JWT (JSON Web Token)** (Autenticação e Segurança)
 
-Abaixo está a explicação de como o projeto está organizado e o que irei colocar em cada arquivo:
+## 🏗️ Estrutura do Projeto
+- `src/config`: Configurações de banco de dados e autenticação.
+- `src/models`: Interfaces que definem as entidades do sistema (User, Flight, AirPlane).
+- `src/controllers`: Lógica de negócio e comunicação com o banco.
+- `src/middlewares`: Camada de segurança (validação de tokens).
+- `src/routes`: Definição de rotas públicas e privadas.
 
-### 📂 `src/config`
-Configurações globais da aplicação.
-* **`auth.ts`**: Configurações de expiração de tokens e segredos para autenticação.
-* **`database.ts`**: Configurações de ambiente para conexão com SQL Server ou SQLite3.
-
-### 📂 `src/controllers`
-Lidam com as requisições HTTP e enviam as respostas para o cliente.
-* **`auth.ts`**: Lógica de login e logout.
-* **`vagas.ts`**: Controle de ocupação de hangares ou pátios.
-* **`voos.ts`**: Métodos para listar, criar e atualizar voos.
-
-### 📂 `src/services`
-Contêm a regra de negócio real. É onde a inteligência do sistema vive.
-* **`AutenticarUsuario.ts`**: Validação de credenciais e geração de tokens.
-* **`CancelarPassagem.ts`**: Regras para cancelamento e estorno.
-* **`criarVoo.ts`**: Validações antes de registrar um novo voo no banco.
-
-### 📂 `src/repositories`
-Camada de persistência de dados (Queries SQL).
-* **`usuario.ts`**, **`vagas.ts`**, **`voos.ts`**: Interagem diretamente com o banco de dados.
-
-### 📂 `src/models`
-Definições de tipos e entidades do sistema usando TypeScript.
-* **`aviao.ts`**, **`passageiro.ts`**, **`voo.ts`**: Interfaces que garantem que os dados sigam o formato correto.
-
-### 📂 `src/routes`
-Mapeamento de caminhos (endpoints) da API.
-* **`index.ts`**: Centralizador que agrupa todas as rotas para simplificar o `server.ts`.
-* **`usuario.ts`**, **`vagas.ts`**, **`voos.ts`**: Definição de métodos (GET, POST, PUT, DELETE) para cada entidade.
-
----
+## ✅ Funcionalidades Implementadas
+- **Autenticação**:
+  - Registro de usuários com senhas hash (bcrypt).
+  - Login gerando token JWT de 1 dia de duração.
+- **Segurança**:
+  - Middleware de proteção de rotas (apenas usuários logados cadastram dados).
+- **Gestão de Aeroporto**:
+  - Cadastro de Aeronaves (modelo, prefixo, capacidade, manutenção).
+  - Cadastro e Listagem de Voos (origem, destino, horários, portão, status).
 
 ## 🚀 Próximos Passos
-
-1.  **Configuração do Banco**: Finalizar o arquivo `connection.ts` na pasta `database` para conectar com seu SQLite3 ou SQL Server.
-2.  **Criação das Migrations**: Definir as tabelas de `voos` e `usuarios` no banco de dados.
-3.  **Implementação do Auth**: Configurar a criptografia de senhas usando o **Bcrypt** no `AutenticarUsuario.ts`.
-4.  **Integração de Rotas**: Importar as rotas de voos e usuários dentro do `index.ts` e testar a primeira requisição no `server.ts`.
+- [ ] Criar relacionamentos (Foreign Keys) entre Voos e Aeronaves.
+- [ ] Implementar as funções de Editar (Update) e Deletar (Delete).
+- [ ] Adicionar validações de regras de negócio.
+- [ ] Iniciar o Frontend em React/Nextjs.
