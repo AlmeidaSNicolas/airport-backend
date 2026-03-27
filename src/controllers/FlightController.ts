@@ -28,6 +28,9 @@ export class FlightController {
       res.status(500).json({ error: "Erro ao buscar voos" });
     }
   }
+
+
+  
 }
 
 export default new FlightController();

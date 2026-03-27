@@ -18,8 +18,11 @@ routes.get('/profile', authMiddleware, (req, res) => {
 // Rotas de Aeronaves (Protegidas)
 routes.post('/airplanes', authMiddleware, AirplaneController.create);
 
+
 // Rotas de Voos
 routes.post('/flights', authMiddleware, FlightController.create); // Protegida
 routes.get('/flights', FlightController.listAll); // Pública
+
+
 
 export default routes;
